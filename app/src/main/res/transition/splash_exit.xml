@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018. Property of Dennis Kwabena Bilson. No unauthorized duplication of this material should be made without prior permission from the developer
+  -->
+
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+	
+	<transition
+		class="io.clevver.ui.transitions.CircularReveal"
+		android:interpolator="@android:interpolator/fast_out_slow_in"
+		android:startDelay="@android:integer/config_shortAnimTime"
+		app:centerOn="@id/splash_text">
+		<targets>
+			<target android:targetId="@id/splash_text" />
+		</targets>
+	</transition>
+	
+	<fade
+		android:duration="400"
+		android:interpolator="@android:interpolator/fast_out_slow_in">
+		<targets>
+			<target android:targetId="@android:id/navigationBarBackground" />
+		</targets>
+	</fade>
+
+</transitionSet>

@@ -1,3 +1,229 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2018. Property of Dennis Kwabena Bilson. No unauthorized duplication of this material should be made without prior permission from the developer
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+	
+	<!-- global -->
 	<string name="app_name">Clevver</string>
+	<string name="no_comments">No comments</string>
+	<string name="login_to">Log in to</string>
+	<string name="need_login">Woah there chief. First you\'ll need&#160;to</string> <!-- &#160; == nbsp -->
+	<string name="dribbble_logged_in_as">Logged in as</string>
+	<string name="comment">Comment</string>
+	<string name="description">Short description</string>
+	<string name="hint_reply">Reply</string>
+	
+	<!-- main screen -->
+	<string name="search">Search</string>
+	<string name="filter">Filter</string>
+	<string name="about">About</string>
+	<string name="dribbble_login">Log in to Dribbble</string>
+	<string name="dribbble_log_out">Log out of Dribbble</string>
+	<string name="dribbble_logged_out">Logged out of Dribbble</string>
+	<string name="designer_news_login">Log in to Designer News</string>
+	<string name="designer_news_log_out">Log out of Designer News</string>
+	<string name="designer_news_logged_out">Logged out of Designer News</string>
+	<string name="add">Add</string>
+	<string name="edit">Edit</string>
+	<string name="no_filters_selected">No filters selected, press the filter button above (<annotation src="@drawable/ic_filter_small">&#2228;</annotation>)\n<i><annotation foregroundColor="@color/text_secondary_light">or swipe from the&#160;right</annotation></i></string>
+	
+	<!-- data sources / filters -->
+	<string name="source_designer_news_popular">Popular Designer News</string>
+	<string name="source_designer_news_recent">Recent Designer News</string>
+	<string name="source_dribbble_popular">Popular Dribbbles</string>
+	<string name="source_dribbble_following">Dribbble following</string>
+	<string name="source_dribbble_user_likes">My Dribbble likes</string>
+	<string name="source_dribbble_user_shots">My Dribbble shots</string>
+	<string name="source_dribbble_recent">Recent Dribbbles</string>
+	<string name="source_dribbble_debuts">Dribbble Debuts</string>
+	<string name="source_dribbble_animated">Dribbble Animated</string>
+	<string name="source_dribbble_search_material_design">Material Design</string>
+	<string name="source_dribbble_search_e_commerce">E-Commerce</string>
+	<string name="source_dribbble_search_dashboard">Dashboard</string>
+	<string name="source_dribbble_search_animations">Animation</string>
+	<string name="source_product_hunt">Product Hunt</string>
+	<string name="firebase_popular">Popular Stories</string>
+	<string name="firebase_following">My News</string>
+	<string name="firebase_favorite">My Favorites</string>
+	<string name="firebase_personal">My Personal Stories</string>
+	<string name="firebase_recent">Recent News</string>
+	<string name="firebase_debut">News Debuts</string>
+	<string name="firebase_animated">Animated News Stories</string>
+	
+	<!-- Search -->
+	<string name="search_hint">Search Dribbble</string>
+	<string name="no_search_results">No results for\n“%1$s”</string>
+	<string name="confirm_save_dribbble_search">Save Dribbble</string>
+	<string name="confirm_save_search">Save</string>
+	
+	<!-- new designer news story -->
+	<string name="new_story_post_title">Post title</string>
+	<string name="new_story_url">Url</string>
+	<string name="new_story_url_hint">Link</string>
+	<string name="new_story_post">Post</string>
+	<string name="hello_world">Hello world!</string>
+	<string name="action_settings">Settings</string>
+	
+	<!--new firebase news story-->
+	<string name="new_news_title">Post your story to Firebase News</string>
+	<string name="new_news_instructions">Submit an image and provide a description to get started</string>
+	<string name="new_news_image_or_description">Include an image <b>or</b> a short description</string>
+	
+	<!-- designer news login -->
+	<string name="username">Email address</string>
+	<string name="get_accounts_permission_primer_message">Autocomplete email addresses</string>
+	<string name="password">Password</string>
+	<string name="sign_up">Sign up</string>
+	<string name="dn_login_action">Log in</string>
+	
+	<string name="login_failed">Login failed</string>
+	
+	
+	<!-- dribbble shot screen -->
+	<!-- using strings for the number of views/likes as we run them through NumberFormat -->
+	<plurals name="likes">
+		<item quantity="zero">no likes</item>
+		<item quantity="one">%s like</item>
+		<item quantity="other">%s likes</item>
+	</plurals>
+	<plurals name="views">
+		<item quantity="zero">no views</item>
+		<item quantity="one">%s view</item>
+		<item quantity="other">%s views</item>
+	</plurals>
+	<string name="share">share</string>
+	<string name="prospects_cant_post">Sorry but prospects cannot comment :(</string>
+	<string name="bad_dribbble_shot_url">Can\'t open that link :(</string>
+	
+	<!-- dribbble player -->
+	<string name="follow">Follow</string>
+	<string name="following">Following</string>
+	<plurals name="shots">
+		<item quantity="zero">no shots</item>
+		<item quantity="one">%s shot</item>
+		<item quantity="other">%s shots</item>
+	</plurals>
+	<plurals name="follower_count">
+		<item quantity="zero">no followers</item>
+		<item quantity="one">%s follower</item>
+		<item quantity="other">%s followers</item>
+	</plurals>
+	
+	<!-- dribbble player sheet -->
+	<plurals name="fans">
+		<item quantity="zero">No Fans</item>
+		<item quantity="one">%s Fan</item>
+		<item quantity="other">%s Fans</item>
+	</plurals>
+	
+	<!-- about screen -->
+	<string name="about_plaid_0">Clevver&#169; is a source of UI &amp; UX inspiration that
+		serves as a concrete example of [material design principles](https://www.google.com/design/spec/material-design/introduction.html#introduction-principles). Clevver&#169; pulls data from
+		[Behance](https://www.behance.net/), [Github](https://www.github.com/),
+		[Dribbble](https://dribbble.com/) &amp; [Product Hunt](https://www.producthunt.com/); it is in no way an official client for these services nor endorsed by them. It is rather good&#160;though.</string>
+	<string name="about_plaid_1">Clevver&#169; is written by Dennis&#160;Bilson </string>
+	<string name="about_plaid_2">[Twitter](http://twitter.com/crafty) | [Google+](http://google.com/+NickButcher)</string>
+	<string name="about_plaid_3">The source code is available on
+		[GitHub](http://github.com/Quabynah/plaid-master)</string>
+	<string name="about_icon_0">"Clevver&#169;\'s icon is lovingly crafted by the inimitable
+		Roman&#160;Nurik"</string>
+	<string name="about_icon_1">[Twitter](http://twitter.com/romannurik) | [Google+](http://google.com/+RomanNurik)</string>
+	<string name="about_libs_intro">Clevver&#169; is built with the help of these awesome&#160;libraries</string>
+	<string name="about_lib_link">website</string>
+	
+	<!-- app shortcuts -->
+	<string name="shortcut_search_short_label">@string/search</string>
+	<string name="shortcut_search_long_label">@string/search</string>
+	<string name="shortcut_search_disabled">Search not available</string>
+	<string name="shortcut_post_short_label">New Story</string>
+	<string name="shortcut_post_long_label">New Whisperer news</string>
+	<string name="shortcut_post_disabled">Log in to Whisperer to post a new story</string>
+	
+	<!-- transition shared elements -->
+	<string name="transition_shot" translatable="false">shot</string>
+	<string name="transition_shot_title" translatable="false">shot_title</string>
+	<string name="transition_shot_background" translatable="false">shot_background</string>
+	<string name="transition_post" translatable="false">post</string>
+	<string name="transition_post_title" translatable="false">post_title</string>
+	<string name="transition_post_background" translatable="false">post_background</string>
+	<string name="transition_post_title_background" translatable="false">post_title_background</string>
+	<string name="transition_story_title" translatable="false">story_title</string>
+	<string name="transition_story_title_background" translatable="false">story_title_background</string>
+	<string name="transition_story_background" translatable="false">transition_story_background</string>
+	<string name="transition_dribbble_login" translatable="false">dribbble_login</string>
+	<string name="transition_designer_news_login" translatable="false">transition_designer_news_login</string>
+	<string name="transition_new_designer_news_post" translatable="false">new_designer_news_post</string>
+	<string name="transition_player_avatar" translatable="false">transition_player_avatar</string>
+	<string name="transition_player_background" translatable="false">transition_player_background</string>
+	<string name="transition_search_back" translatable="false">transition_search_back</string>
+	
+	<!--others-->
+	<string name="comment_likes_count">0</string>
+	<string name="dribbble_profile">Dribbble profile</string>
+	<string name="fetching_data">Fetching data from Clevver</string>
+	<string name="fetching_image">Fetching image</string>
+	<string name="firebase_news_login">Log in to Firebase News</string>
+	<string name="firebase_news_logout">Log out of Firebase News</string>
+	<string name="firebase_profile">Reader Profile</string>
+	<string name="add_image">Add image</string>
+	<string name="use_zeberx">Use ZeberX</string>
+	<string name="title_activity_zeber">Zeber</string>
+	<string name="places_zeber_home_tag">ZeberPlaces</string>
+	<string name="profile">Profile</string>
+	<string name="start_uber">Visit Uber App</string>
+	<string name="need_location_service_provider">You need to enable your service provider. Please turn on your internet or exit the application</string>
+	<string name="navigation_drawer_close">Close drawer</string>
+	<string name="navigation_drawer_open">Open drawer</string>
+	<string name="zeber">Zeber</string>
+	<string name="login_uber">Login to Uber&#169;</string>
+	<string name="logout_uber">Sign out</string>
+	<string name="upcoming">Not available yet</string>
+	<string name="welcome_text">We are glad to have you on board!. Please take a quick tour
+		with us on how to get started with Clevver©</string>
+	<string name="channel_default_plaid">default_plaid</string>
+	<string name="plaid_channel_desc">News Channel</string>
+	<string name="empty">  </string>
+	<string name="download">Download</string>
+	
+	<!-- Facebook application ID and custom URL scheme (app ID prefixed by 'fb'). -->
+	<string name="facebook_application_id" translatable="false">2105663042989213</string>
+	<string name="facebook_login_protocol_scheme" translatable="false">fb2105663042989213</string>
+	
+	<!-- Twitter consumer key and secret -->
+	<string name="twitter_consumer_key" translatable="false">7kMLPUYBk0n91RaMjjQondfFX</string>
+	<string name="twitter_consumer_secret" translatable="false">NAu5sJwRdY3NpPZcZBvSvXxnoTK1Tx8Rp8wpJlYiUzzx3WBdNO</string>
+	
+	<!-- GitHub consumer key and secret -->
+	<string name="github_client_id">12fae6d0192d4d595447</string>
+	<string name="github_client_secret">a31b54b1997875f7d4682146093a236d99e1ac05</string>
+	<string name="github_access_token">0f8c48d1c6fac62e71792210d67248cc8a164343</string>
+	
+	
+	<string name="more_apps">More Apps</string>
+	<string name="title_activity_mime_home">Mime</string>
+	<string name="title_chats">Chats</string>
+	<string name="title_status">Status</string>
+	<string name="title_stories">Stories</string>
+	<string name="new_story_title">New story title</string>
+	<string name="open_link">View in browser</string>
+	<string name="behance_login">Login to Behance</string>
+	<string name="behance_logged_out">Logged out of Behance</string>
+	<string name="behance_projects">Behance</string>
+	<string name="behance_log_out">Log out of Behance</string>
+	<string name="about_dev_info">Nick Butcher (on the left) is my personal mentor and inspiration
+		for the development of this awesome application. It was through his beautiful work
+		[Plaid](https://play.google.com/apps/testing/io.plaidapp) that i designed this application for you and me. May it serve you its intended
+		purpose. Let\'s build great apps together!</string>
+	<string name="nick_url" tools:ignore="TypographyDashes">https://firebasestorage.googleapis.com/v0/b/plaid-master.appspot.com/o/nickbutcher.jpg?alt=media&amp;token=d75f278a-3f2c-41d2-bad5-7e0976432834</string>
+	<string name="quabynah_url" tools:ignore="TypographyDashes">https://firebasestorage.googleapis.com/v0/b/plaid-master.appspot.com/o/IMG_20180114_163436.jpg?alt=media&amp;token=603a1afc-558d-4a31-9ead-64bd82af7e79</string>
+	<string name="github_repos">Github Repo</string>
+	<string name="no_repo">No repositories found for this user</string>
+	<string name="connect_with_github">Connect to Github</string>
+	<string name="logout">Logout</string>
+	<string name="my_collections">My Collections</string>
+	<string name="new_story_instructions">Add url or comment</string>
+	<string name="new_story_link_or_comment">Post story with url or profound comment</string>
+	<string name="unsplash_collections">Unsplash</string>
+
 </resources>

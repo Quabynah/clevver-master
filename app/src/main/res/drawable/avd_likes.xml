@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018. Property of Dennis Kwabena Bilson. No unauthorized duplication of this material should be made without prior permission from the developer
+  -->
+
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="24"
+            android:viewportHeight="24">
+            <group
+                android:name="heart"
+                android:pivotX="12"
+                android:pivotY="12">
+                <path
+                    android:pathData="@string/heart_full_path_24dp"
+                    android:fillColor="@color/inline_action_icon" />
+            </group>
+        </vector>
+    </aapt:attr>
+
+    <target android:name="heart">
+        <aapt:attr name="android:animation">
+            <set android:interpolator="@android:interpolator/accelerate_quad">
+                <!-- beat 1 -->
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:valueFrom="1"
+                    android:valueTo="1.2"
+                    android:duration="100" />
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:valueFrom="1"
+                    android:valueTo="1.2"
+                    android:duration="100" />
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:valueFrom="1.2"
+                    android:valueTo="1"
+                    android:startOffset="100"
+                    android:duration="150" />
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:valueFrom="1.2"
+                    android:valueTo="1"
+                    android:startOffset="100"
+                    android:duration="150" />
+                <!-- beat 2 -->
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:valueFrom="1"
+                    android:valueTo="1.2"
+                    android:startOffset="500"
+                    android:duration="100" />
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:valueFrom="1"
+                    android:valueTo="1.2"
+                    android:startOffset="500"
+                    android:duration="100" />
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:valueFrom="1.2"
+                    android:valueTo="1"
+                    android:startOffset="600"
+                    android:duration="150"  />
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:valueFrom="1.2"
+                    android:valueTo="1"
+                    android:startOffset="600"
+                    android:duration="150" />
+            </set>
+        </aapt:attr>
+    </target>
+
+</animated-vector>

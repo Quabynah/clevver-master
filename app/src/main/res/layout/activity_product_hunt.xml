@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018. Property of Dennis Kwabena Bilson. No unauthorized duplication of this material should be made without prior permission from the developer
+  -->
+
+<io.clevver.ui.widget.ElasticDragDismissFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/post_container"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	app:dragDismissDistance="@dimen/drag_dismiss_distance"
+	app:dragDismissScale="0.95"
+	tools:context="io.clevver.ui.ProductHunt">
+	
+	<!-- Use a separate view for the background, rather than on the root view because it is a
+		shared element. Otherwise it interferes with the window enter transition i.e. as it is
+		resized for the shared element transition, many views are considered 'off-screen' so
+		visibility transitions are not run. -->
+	<View
+		android:id="@+id/background"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/background_light"
+		android:transitionName="@string/transition_post_background" />
+	
+	<Toolbar
+		android:id="@+id/story_toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="?android:actionBarSize"
+		android:background="@color/product_hunt"
+		android:contentInsetEnd="@dimen/padding_normal"
+		android:contentInsetStart="@dimen/keyline_1"
+		android:elevation="@dimen/z_app_bar"
+		android:navigationIcon="@drawable/ic_arrow_back"
+		android:theme="@style/ClevverDarkOverlay"
+		android:transitionGroup="true"
+		android:title="@string/app_name"
+		android:layout_gravity="top|fill_horizontal"
+		android:transitionName="@string/transition_post_title" />
+	
+	<LinearLayout
+		android:id="@+id/container"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:layout_marginTop="?android:actionBarSize"
+		android:paddingTop="?android:actionBarSize">
+		
+		<!--todo: add content here-->
+	
+	</LinearLayout>
+	
+	
+	<ImageButton
+		android:id="@+id/fab"
+		android:layout_width="@dimen/fab_size"
+		android:layout_height="@dimen/fab_size"
+		android:layout_gravity="bottom|end"
+		android:layout_marginBottom="@dimen/padding_normal"
+		android:layout_marginEnd="@dimen/padding_normal"
+		android:background="@drawable/fab"
+		android:elevation="@dimen/z_fab"
+		android:src="@drawable/ic_web"
+		android:stateListAnimator="@animator/raise"
+		tools:ignore="ContentDescription" />
+	
+	<!-- we use this view during the fab click animation. It provides placeholder UI for the
+		 chrome custom tab. Its background is faded from the fab color to white (controlled by
+		 ProductHunt#doFabExpand) and the foreground drawable imitates a toolbar -->
+	<FrameLayout
+		android:id="@+id/fab_expand"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:elevation="@dimen/z_dialog"
+		android:foreground="@drawable/product_hunt_custom_tab_placeholder"
+		android:visibility="invisible" />
+
+
+</io.clevver.ui.widget.ElasticDragDismissFrameLayout>

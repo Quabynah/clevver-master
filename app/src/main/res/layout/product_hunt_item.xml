@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2018. Property of Dennis Kwabena Bilson. No unauthorized duplication of this material should be made without prior permission from the developer
+  -->
+
+<io.clevver.ui.widget.FourThreeLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/post"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/product_hunt"
+	android:elevation="@dimen/z_card"
+	android:foreground="@drawable/dark_ripple"
+	android:orientation="vertical"
+	android:stateListAnimator="@animator/raise"
+	android:theme="@style/ClevverDarkOverlay">
+	
+	<io.clevver.ui.widget.BaselineGridTextView
+		android:id="@+id/hunt_title"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:breakStrategy="simple"
+		android:ellipsize="end"
+		android:paddingBottom="@dimen/spacing_micro"
+		android:paddingEnd="@dimen/padding_normal"
+		android:paddingStart="@dimen/padding_normal"
+		android:paddingTop="@dimen/padding_normal"
+		android:textAppearance="@style/TextAppearance.TilePrimary"
+		app:maxLinesByHeight="true" />
+	
+	<io.clevver.ui.widget.BaselineGridTextView
+		android:id="@+id/tagline"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:breakStrategy="simple"
+		android:ellipsize="end"
+		android:paddingBottom="@dimen/spacing_micro"
+		android:paddingEnd="@dimen/padding_normal"
+		android:paddingStart="@dimen/padding_normal"
+		android:textAppearance="@style/TextAppearance.TileSecondary"
+		app:maxLinesByHeight="true" />
+	
+	<io.clevver.ui.widget.BaselineGridTextView
+		android:id="@+id/story_comments"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="end"
+		android:layout_margin="@dimen/spacing_micro"
+		android:background="@drawable/dark_ripple"
+		android:drawablePadding="@dimen/spacing_normal"
+		android:drawableStart="@drawable/ic_comment_light"
+		android:gravity="center_vertical"
+		android:padding="@dimen/spacing_normal"
+		android:textAppearance="@style/TextAppearance.TileSecondary" />
+
+</io.clevver.ui.widget.FourThreeLinearLayout>

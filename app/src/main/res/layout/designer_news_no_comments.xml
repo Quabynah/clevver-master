@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018. Property of Dennis Kwabena Bilson. No unauthorized duplication of this material should be made without prior permission from the developer
+  -->
+
+<io.clevver.ui.widget.BaselineGridTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@android:id/empty"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/designer_news_story_comment_horizontal_padding"
+    android:paddingTop="@dimen/spacing_large"
+    android:paddingEnd="@dimen/designer_news_story_comment_horizontal_padding"
+    android:paddingBottom="@dimen/spacing_large"
+    android:gravity="center"
+    android:drawableTop="@drawable/ic_no_comments"
+    android:text="@string/no_comments"
+    android:textAppearance="@style/TextAppearance.EmptyState"
+    android:elevation="@dimen/designer_news_story_comment_elevation"
+    android:background="@drawable/comment_background"
+    android:clickable="false"
+    tools:showIn="@layout/activity_designer_news_story" />

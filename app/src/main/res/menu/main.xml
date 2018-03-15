@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2018. Property of Dennis Kwabena Bilson. No unauthorized duplication of this material should be made without prior permission from the developer
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_search"
+        android:title="@string/search"
+        android:icon="@drawable/ic_search_24dp"
+        android:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_filter"
+        android:title="@string/filter"
+        android:icon="@drawable/ic_filter"
+        android:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_dribbble_login"
+        android:title="@string/dribbble_login"
+        android:showAsAction="never" />
+    
+    <item
+        android:id="@+id/menu_behance_login"
+        android:title="@string/behance_login"
+        android:showAsAction="never" />
+    
+    <item
+        android:id="@+id/menu_profile_dribbble"
+        android:title="@string/dribbble_profile"
+        android:enabled="false"
+        android:showAsAction="never" />
+    
+    <item
+        android:id="@+id/menu_github"
+        android:title="@string/github_repos"
+        android:showAsAction="never" />
+    
+    <item
+        android:id="@+id/menu_collections"
+        android:title="@string/my_collections"
+        android:enabled="false"
+        android:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_about"
+        android:title="@string/about"
+        android:showAsAction="never" />
+
+</menu>

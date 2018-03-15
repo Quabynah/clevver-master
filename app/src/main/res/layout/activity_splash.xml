@@ -1,18 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018. Property of Dennis Kwabena Bilson. No unauthorized duplication of this material should be made without prior permission from the developer
+  -->
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/container"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context="io.clevver.SplashActivity">
+	android:background="@color/black"
+	tools:context="io.clevver.ui.SplashActivity">
 	
-	<TextView
+	
+	<io.clevver.ui.widget.BaselineGridTextView
+		android:id="@+id/splash_text"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="Hello World!"
+		android:padding="@dimen/padding_normal"
+		android:text="@string/app_name"
+		android:textAlignment="center"
+		android:textAppearance="@style/TextAppearance.DribbbleShotTitle"
+		android:textColor="@color/text_primary_light"
+		android:textStyle="bold"
+		app:fontFamily="@font/uber_font"
 		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent" />
+	
+	<ProgressBar
+		android:id="@+id/splash_progress"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="@dimen/padding_normal"
+		android:indeterminate="true"
+		android:indeterminateBehavior="repeat"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		android:visibility="visible"
+		android:indeterminateTint="@color/product_hunt"
+		app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

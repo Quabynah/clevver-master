@@ -3,18 +3,196 @@
 	package="io.clevver"
 	android:installLocation="auto">
 	
+	<!-- Access internet state -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	
+	<!-- Access local storage -->
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	
 	<application
+		android:name=".api.Clevver"
 		android:allowBackup="true"
+		android:appCategory="image"
+		android:extractNativeLibs="false"
+		android:fullBackupContent="@xml/backup_descriptor"
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
-		android:roundIcon="@mipmap/ic_launcher_round"
 		android:supportsRtl="true"
-		android:theme="@style/AppTheme">
-		<activity android:name=".SplashActivity">
+		android:theme="@style/Clevver">
+		<activity
+			android:name=".ui.HomeActivity"
+			android:exported="true"
+			android:label="@string/app_name"
+			android:theme="@style/Clevver.Home">
+			<intent-filter>
+				<data
+					android:host="clevver-auth-callback"
+					android:scheme="clevver" />
+				
+				<action android:name="android.intent.action.VIEW" />
+				
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".ui.SplashActivity"
+			android:label="@string/app_name"
+			android:launchMode="singleTask"
+			android:screenOrientation="portrait"
+			android:theme="@style/Clevver.Translucent.Splash" />
+		<!--
+ Use an alias in case we want to change the launch activity later without breaking
+			 homescreen shortcuts. Note must be defined after the targetActivity
+        -->
+		<activity-alias
+			android:name=".Launcher"
+			android:label="@string/app_name"
+			android:targetActivity=".ui.SplashActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				
 				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+			
+			<meta-data
+				android:name="android.app.shortcuts"
+				android:resource="@xml/shortcuts" />
+		</activity-alias>
+		
+		<activity
+			android:name=".ui.DribbbleShot"
+			android:parentActivityName=".ui.HomeActivity"
+			android:theme="@style/Clevver.Translucent.Dribbble.Shot">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				
+				<data
+					android:host="dribbble.com"
+					android:pathPrefix="/shots/"
+					android:scheme="https" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".ui.PlayerActivity"
+			android:theme="@style/Clevver.Translucent.Dribbble.Player" />
+		<activity
+			android:name=".ui.PlayerSheet"
+			android:theme="@style/Clevver.Translucent.Dribbble.PlayerSheet" />
+		<activity
+			android:name=".ui.SearchActivity"
+			android:launchMode="singleTop"
+			android:theme="@style/Clevver.Translucent.Search">
+			<intent-filter>
+				<action android:name="android.intent.action.SEARCH" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="com.google.android.gms.actions.SEARCH_ACTION" />
+				
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+			
+			<meta-data
+				android:name="android.app.searchable"
+				android:resource="@xml/searchable" />
+		</activity>
+		<activity
+			android:name=".ui.DribbbleLogin"
+			android:exported="true"
+			android:launchMode="singleTop"
+			android:theme="@style/Clevver.Translucent.Dribbble.Login">
+			<intent-filter>
+				<data
+					android:host="clevver-auth-callback"
+					android:scheme="clevver" />
+				
+				<action android:name="android.intent.action.VIEW" />
+				
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".ui.AboutActivity"
+			android:parentActivityName=".ui.HomeActivity"
+			android:theme="@style/Clevver.Translucent.About" />
+		
+		<provider
+			android:name="android.support.v4.content.FileProvider"
+			android:authorities="io.clevver.shareprovider"
+			android:exported="false"
+			android:grantUriPermissions="true">
+			<meta-data
+				android:name="android.support.FILE_PROVIDER_PATHS"
+				android:resource="@xml/glide_disk_cache_path" />
+		</provider>
+		
+		<meta-data
+			android:name="com.google.android.gms.version"
+			android:value="@integer/google_play_services_version" />
+		<!-- <meta-data -->
+		<!-- android:name="com.google.firebase.messaging.default_notification_icon" -->
+		<!-- android:resource="@drawable/ic_stat_ic_notification" /> -->
+		
+		<meta-data
+			android:name="preloaded_fonts"
+			android:resource="@array/preloaded_fonts" />
+		
+		<activity
+			android:name=".ui.ProductHunt"
+			android:parentActivityName=".ui.HomeActivity"
+			android:theme="@style/Clevver.Translucent.ProductHunt" />
+		<activity
+			android:name=".ui.ImageDetailsActivity"
+			android:label="@string/app_name"
+			android:parentActivityName=".ui.DribbbleShot"
+			android:theme="@style/Clevver.Translucent.ImageDetails" />
+		<activity
+			android:name=".ui.RepositoryActivity"
+			android:parentActivityName=".ui.HomeActivity" />
+		<activity
+			android:name=".ui.RepositoryDetailsActivity"
+			android:parentActivityName=".ui.RepositoryActivity" />
+		<activity
+			android:name=".ui.PostNewDesignerNewsStory"
+			android:exported="true"
+			android:theme="@style/Clevver.Translucent.PostDesignerNewsStory">
+			<intent-filter>
+				<action android:name="android.intent.action.SEND" />
+				
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				
+				<data android:mimeType="text/plain" />
+			</intent-filter>
+		</activity>
+		
+		<service
+			android:name=".data.api.designernews.PostStoryService"
+			android:exported="false" />
+		<service
+			android:name=".data.api.designernews.UpvoteStoryService"
+			android:exported="false" />
+		
+		<activity
+			android:name=".ui.UnsplashActivity"
+			android:parentActivityName=".ui.HomeActivity"
+			android:theme="@style/Clevver.Translucent.Dribbble">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				
+				<data
+					android:host="unsplash.com"
+					android:pathPrefix="/photos/"
+					android:scheme="https" />
 			</intent-filter>
 		</activity>
 	</application>

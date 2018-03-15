@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018. Property of Dennis Kwabena Bilson. No unauthorized duplication of this material should be made without prior permission from the developer
+  -->
+
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportHeight="24"
+            android:viewportWidth="24">
+            <path
+                android:name="@string/name_dots"
+                android:pathData="@string/path_share_dots"
+                android:fillColor="@color/inline_action_icon" />
+            <path
+                android:name="@string/name_lines"
+                android:pathData="@string/path_share_lines"
+                android:strokeColor="@color/inline_action_icon"
+                android:strokeLineCap="square"
+                android:strokeWidth="2" />
+        </vector>
+    </aapt:attr>
+
+    <target android:name="@string/name_dots">
+        <aapt:attr name="android:animation">
+            <set android:interpolator="@android:interpolator/fast_out_slow_in">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:valueFrom="@string/path_share_dots"
+                    android:valueTo="@string/path_share_dots_collapsed"
+                    android:duration="@integer/share_duration_collapse"
+                    android:valueType="pathType" />
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:valueFrom="@string/path_share_dots_collapsed"
+                    android:valueTo="@string/path_share_dots_mid_expand"
+                    android:startOffset="@integer/share_delay_start_expand"
+                    android:duration="@integer/share_duration_mid_expand"
+                    android:valueType="pathType" />
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:valueFrom="@string/path_share_dots_mid_expand"
+                    android:valueTo="@string/path_share_dots"
+                    android:startOffset="@integer/share_delay_full_expand"
+                    android:duration="@integer/share_duration_full_expand"
+                    android:valueType="pathType" />
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="@string/name_lines">
+        <aapt:attr name="android:animation">
+            <set
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:interpolator="@android:interpolator/fast_out_slow_in">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:valueFrom="@string/path_share_lines"
+                    android:valueTo="@string/path_share_lines_collapsed"
+                    android:duration="@integer/share_duration_collapse"
+                    android:valueType="pathType" />
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:valueFrom="@string/path_share_lines_collapsed"
+                    android:valueTo="@string/path_share_lines_mid_expand"
+                    android:startOffset="@integer/share_delay_start_expand"
+                    android:duration="@integer/share_duration_mid_expand"
+                    android:valueType="pathType" />
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:valueFrom="@string/path_share_lines_mid_expand"
+                    android:valueTo="@string/path_share_lines"
+                    android:startOffset="@integer/share_delay_full_expand"
+                    android:duration="@integer/share_duration_full_expand"
+                    android:valueType="pathType" />
+            </set>
+        </aapt:attr>
+    </target>
+
+</animated-vector>

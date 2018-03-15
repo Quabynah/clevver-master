@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018. Property of Dennis Kwabena Bilson. No unauthorized duplication of this material should be made without prior permission from the developer
+  -->
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/background"
+    tools:context="io.clevver.ui.DribbbleLogin">
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_xlarge"
+        android:padding="@dimen/spacing_large"
+        android:paddingTop="@dimen/spacing_xlarge"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:elevation="@dimen/z_fab"
+        android:background="@drawable/dialog_background"
+        android:transitionName="@string/transition_dribbble_login">
+
+        <io.clevver.ui.widget.BaselineGridTextView
+            android:id="@+id/login_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:gravity="center"
+            android:text="@string/need_login"
+            android:textAppearance="@style/TextAppearance.DialogContent" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="@dimen/padding_normal"
+            android:layout_marginBottom="@dimen/spacing_micro"
+            android:text="@string/login_to"
+            android:textAppearance="@style/TextAppearance.DarkButton"
+            android:drawableEnd="@drawable/dribbble_logo"
+            android:drawablePadding="@dimen/spacing_micro" />
+
+        <TextView
+            android:id="@+id/login_failed_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/error"
+            android:visibility="gone"
+            android:text="@string/login_failed" />
+
+        <include layout="@layout/loading" />
+
+    </LinearLayout>
+
+</FrameLayout>

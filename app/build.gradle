@@ -4,6 +4,12 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'io.fabric'
 
+// query git for the SHA, Tag and commit count. Use these to automate versioning.
+final def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
+final def gitTag = 'git describe --tags'.execute([], project.rootDir).text.trim()
+final
+def gitCommitCount = Integer.parseInt('git rev-list --count HEAD'.execute([], project.rootDir).text.trim())
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -16,6 +22,32 @@ android {
         resConfigs "auto"
         multiDexEnabled true
 
+        multiDexEnabled true
+
+        buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
+        buildConfigField "String", "GIT_TAG", "\"${gitTag}\""
+        buildConfigField "String", "GIT_COMMIT_COUNT", "\"${gitCommitCount}\""
+        buildConfigField "String", "GITHUB_CLIENT_ID",
+                "\"12fae6d0192d4d595447\""
+        buildConfigField "String", "DRIBBBLE_CLIENT_ID",
+                "\"81a4b656a2925c9a322ee193b792b733926de7fad6301baad4dfd962b9a6dab5\""
+        buildConfigField "String", "DRIBBBLE_CLIENT_SECRET",
+                "\"41506cac1b228b93aa630a421aa305a9628ad20eb75793fd0b9e47a1a6e1b5b6\""
+        buildConfigField "String", "DRIBBBLE_CLIENT_ACCESS_TOKEN",
+                "\"29ed478ab86c07f1c069b1af76088f7431396b7c4a2523d06911345da82224a0\""
+        buildConfigField "String", "PRODUCT_HUNT_DEVELOPER_TOKEN",
+                "\"9ab4e80ff285ee4809f3d8bd6a21da0988bbb9cf76dffd2fae3cd06f3d51ec4e\""
+        buildConfigField "String", "BEHANCE_CLIENT_ID",
+                "\" UKLvHgBApHlWGeGrEccEZFjJE9FiQrLW\""
+        buildConfigField "String", "UNSPLASH_ACCESS_KEY",
+                "\"1f8c0279e7a75ffc44bd188ba521eaa18efe5a88a625972b96b30a745a1d8450\""
+        buildConfigField "String", "UNSPLASH_SECRET_KEY",
+                "\"9aadda3830776fa92364415dbc7b7606b1372188243be7900fd4e3f4dd01eb33\""
+        buildConfigField "String", "UNSPLASH_APP_ID",
+                "\"22773\""
+        buildConfigField "String", "DESIGNER_NEWS_CLIENT_ID", "\"some_text_here\""
+        buildConfigField "String",
+                "DESIGNER_NEWS_CLIENT_SECRET", "\"some_name_here\""
 
         final def filesAuthorityValue = applicationId + ".shareprovider"
         buildConfigField "String", "FILES_AUTHORITY", "\"${filesAuthorityValue}\""
@@ -72,7 +104,6 @@ dependencies {
     implementation "com.android.support:appcompat-v7:${versions.supportLibrary}"
     implementation "com.android.support:design:${versions.supportLibrary}"
     implementation "com.android.support:support-core-utils:${versions.supportLibrary}"
-
 
     //glide image loading and caching
     implementation "com.github.bumptech.glide:glide:${versions.glide}"
