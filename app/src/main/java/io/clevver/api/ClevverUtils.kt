@@ -5,9 +5,7 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.Theme
 import io.clevver.BuildConfig
 import io.clevver.R
-import io.clevver.data.prefs.BehancePrefs
 import io.clevver.data.prefs.DribbblePrefs
-import io.clevver.data.prefs.GitHubPrefs
 
 /**
  * Clevver object class for
@@ -15,15 +13,6 @@ import io.clevver.data.prefs.GitHubPrefs
 object ClevverUtils {
     //App downloads directory
     const val CLEVVER_DOWNLOAD_DIR = "Clevver"
-
-    //Behance
-    const val BEHANCE_API = "https://api.behance.net/"
-
-    //Unsplash
-    const val UNSPLASH_API = "https://api.unsplash.com/"
-
-    //Github
-    const val GITHUB_ENDPOINT = "https://api.github.com/"
 
     //Dribbble
     const val DRIBBBLE_AUTH_SERVICE_API = "https://dribbble.com/"
@@ -33,16 +22,11 @@ object ClevverUtils {
     private const val PART_ONE = "https://dribbble.com/oauth/authorize?client_id=${BuildConfig.DRIBBBLE_CLIENT_ID}"
     private const val PART_TWO = "&redirect_uri=$AUTH_REDIRECT_URL"
     private const val PART_THREE = "&scope=public+write+comment+upload"
-    private const val PART_FOUR = "https://behance.com/oauth/authorize?client_id=${BuildConfig.BEHANCE_CLIENT_ID}"
-    private const val PART_FIVE = "https://github.com/oauth/authorize?client_id=${BuildConfig.GITHUB_CLIENT_ID}"
 
     /**
      * Login endpoint for Clevver
      */
     const val LOGIN_ENDPOINT_DRIBBBLE = PART_ONE + PART_TWO + PART_THREE
-    const val LOGIN_ENDPOINT_BEHANCE = PART_FOUR + PART_TWO + PART_THREE
-    const val LOGIN_ENDPOINT_GITHUB = PART_FIVE + PART_TWO + PART_THREE
-    const val LOGIN_ENDPOINT_UNSPLASH = "https://unsplash.com/oauth/authorize?client_id=${BuildConfig.UNSPLASH_ACCESS_KEY}&scope=public+read_user+write_user+read_photos+write_photos+write_likes+write_followers+read_collections+write_collections&redirect_uri="
 
 
     //Product Hunt
@@ -50,8 +34,6 @@ object ClevverUtils {
 
     //Common
     const val TYPE_DRIBBBLE = 1
-    const val TYPE_BEHANCE = 2
-    const val TYPE_GITHUB = 3
 
 
     /**
@@ -68,8 +50,6 @@ object ClevverUtils {
                     dialog.dismiss()
                     when (type) {
                         TYPE_DRIBBBLE -> DribbblePrefs[context].logout(context)
-                        TYPE_BEHANCE -> BehancePrefs[context].logout(context)
-                        TYPE_GITHUB -> GitHubPrefs[context].logout(context)
                     }
                 })
                 .onNegative({ dialog, _ ->

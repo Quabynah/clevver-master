@@ -32,8 +32,6 @@ public class SourceManager {
 	public static final String SOURCE_DRIBBBLE_ANIMATED = "SOURCE_DRIBBBLE_ANIMATED";
 	public static final String SOURCE_BEHANCE_PROJECTS = "SOURCE_BEHANCE_PROJECTS";
 	public static final String SOURCE_PRODUCT_HUNT = "SOURCE_PRODUCT_HUNT";
-	public static final String SOURCE_UNSPLASH = "SOURCE_UNSPLASH";
-	public static final String SOURCE_GITHUB = "SOURCE_GITHUB";
 	private static final String SOURCES_PREF = "SOURCES_PREF";
 	private static final String KEY_SOURCES = "KEY_SOURCES";
 	
@@ -109,7 +107,7 @@ public class SourceManager {
 	}
 	
 	private static ArrayList<Source> getDefaultSources(Context context) {
-		ArrayList<Source> defaultSources = new ArrayList<>(14);
+		ArrayList<Source> defaultSources = new ArrayList<>(12);
 		defaultSources.add(new Source.DribbbleSource(SOURCE_DRIBBBLE_POPULAR, 100,
 				context.getString(R.string.source_dribbble_popular), true));
 		defaultSources.add(new Source.DribbbleSource(SOURCE_DRIBBBLE_FOLLOWING, 101,
@@ -134,12 +132,6 @@ public class SourceManager {
 		// 200 sort order range left for dribbble searches
 		defaultSources.add(new Source(SOURCE_PRODUCT_HUNT, 300,
 				context.getString(R.string.source_product_hunt), R.drawable.ic_product_hunt, false));
-		defaultSources.add(new Source(SOURCE_BEHANCE_PROJECTS, 400, context.getString(R.string
-				.behance_projects), R.drawable.ic_firebase, false));
-		defaultSources.add(new Source(SOURCE_UNSPLASH, 401, context.getString(R.string
-				.unsplash_collections), R.drawable.ic_firebase, false));
-		defaultSources.add(new Source(SOURCE_GITHUB, 402, context.getString(R.string
-				.github_repos), R.drawable.ic_firebase, false));
 		return defaultSources;
 	}
 	

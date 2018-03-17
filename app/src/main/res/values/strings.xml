@@ -120,7 +120,6 @@
 	<!-- about screen -->
 	<string name="about_plaid_0">Clevver&#169; is a source of UI &amp; UX inspiration that
 		serves as a concrete example of [material design principles](https://www.google.com/design/spec/material-design/introduction.html#introduction-principles). Clevver&#169; pulls data from
-		[Behance](https://www.behance.net/), [Github](https://www.github.com/),
 		[Dribbble](https://dribbble.com/) &amp; [Product Hunt](https://www.producthunt.com/); it is in no way an official client for these services nor endorsed by them. It is rather good&#160;though.</string>
 	<string name="about_plaid_1">Clevver&#169; is written by Dennis&#160;Bilson </string>
 	<string name="about_plaid_2">[Twitter](http://twitter.com/crafty) | [Google+](http://google.com/+NickButcher)</string>

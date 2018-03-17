@@ -43,12 +43,10 @@ import com.bumptech.glide.integration.recyclerview.RecyclerViewPreloader
 import com.bumptech.glide.util.ViewPreloadSizeProvider
 import io.clevver.R
 import io.clevver.api.ClevverUtils
-import io.clevver.ui.*
 import io.clevver.data.DataManager
 import io.clevver.data.PlaidItem
 import io.clevver.data.Source
 import io.clevver.data.api.dribbble.model.Shot
-import io.clevver.data.prefs.BehancePrefs
 import io.clevver.data.prefs.DribbblePrefs
 import io.clevver.data.prefs.SourceManager
 import io.clevver.ui.recyclerview.FilterTouchHelperCallback
@@ -87,7 +85,6 @@ class HomeActivity : Activity() {
     private lateinit var adapter: FeedAdapter
     private lateinit var filtersAdapter: FilterAdapter
     private lateinit var dribbblePrefs: DribbblePrefs
-    private lateinit var behancePrefs: BehancePrefs
     private lateinit var prefs: WelcomePrefs
 
     //others
@@ -111,7 +108,6 @@ class HomeActivity : Activity() {
         setExitSharedElementCallback(FeedAdapter.createSharedElementReenterCallback(this))
 
         dribbblePrefs = DribbblePrefs[this]
-        behancePrefs = BehancePrefs[this]
         prefs = WelcomePrefs()
 
 
@@ -181,12 +177,6 @@ class HomeActivity : Activity() {
             lpFab.bottomMargin += insets.systemWindowInsetBottom // portrait
             lpFab.rightMargin += insets.systemWindowInsetRight // landscape
             fab.layoutParams = lpFab
-
-            val postingStub = findViewById<View>(R.id.stub_posting_progress)
-            val lpPosting = postingStub.layoutParams as ViewGroup.MarginLayoutParams
-            lpPosting.bottomMargin += insets.systemWindowInsetBottom // portrait
-            lpPosting.rightMargin += insets.systemWindowInsetRight // landscape
-            postingStub.layoutParams = lpPosting
 
             // we place a background behind the status bar to combine with it's semi-transparent
             // color to get the desired appearance.  Set it's height to the status bar height
@@ -399,13 +389,6 @@ class HomeActivity : Activity() {
             R.string.dribbble_log_out
         else
             R.string.dribbble_login)
-        val behanceLogin = menu.findItem(R.id.menu_behance_login)
-        behanceLogin?.setTitle(if (behancePrefs.isLoggedIn)
-            R.string.behance_log_out
-        else
-            R.string.behance_login)
-        val dribbbleProfile = menu.findItem(R.id.menu_profile_dribbble)
-        dribbbleProfile?.isEnabled = dribbblePrefs.isLoggedIn
         return true
     }
 
@@ -434,29 +417,6 @@ class HomeActivity : Activity() {
             R.id.menu_about -> {
                 startActivity(Intent(this@HomeActivity, AboutActivity::class.java),
                         ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
-                return true
-            }
-            R.id.menu_profile_dribbble -> {
-                val profileIntent = Intent(this@HomeActivity, PlayerActivity::class.java)
-                if (dribbblePrefs.isLoggedIn) {
-                    //load user from either source
-                    profileIntent.putExtra(PlayerActivity.EXTRA_PLAYER_NAME, dribbblePrefs.userName)
-                    profileIntent.putExtra(PlayerActivity.EXTRA_PLAYER_ID, dribbblePrefs.userId)
-                }
-                startActivity(profileIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
-                return true
-            }
-            R.id.menu_behance_login -> {
-                if (behancePrefs.isLoggedIn) {
-                    ClevverUtils.doLogout(this, ClevverUtils.TYPE_BEHANCE)
-                } else {
-                    behancePrefs.login(this, RC_BEHANCE_AUTH)
-                }
-                return true
-            }
-            R.id.menu_github -> {
-                //navigate to thr github repositories screen
-                startActivity(Intent(this@HomeActivity, RepositoryActivity::class.java))
                 return true
             }
         }

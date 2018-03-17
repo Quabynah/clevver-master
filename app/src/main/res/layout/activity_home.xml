@@ -76,15 +76,6 @@
 			android:visibility="invisible"
 			android:src="@drawable/ic_add_dark"
 			android:stateListAnimator="@animator/raise" />
-		
-		<ViewStub
-			android:id="@+id/stub_posting_progress"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_gravity="bottom|end"
-			android:layout_marginBottom="@dimen/padding_normal"
-			android:layout_marginEnd="@dimen/padding_normal"
-			android:layout="@layout/posting_progress" />
 	
 	</FrameLayout>
 	

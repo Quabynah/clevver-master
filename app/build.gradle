@@ -22,13 +22,9 @@ android {
         resConfigs "auto"
         multiDexEnabled true
 
-        multiDexEnabled true
-
         buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
         buildConfigField "String", "GIT_TAG", "\"${gitTag}\""
         buildConfigField "String", "GIT_COMMIT_COUNT", "\"${gitCommitCount}\""
-        buildConfigField "String", "GITHUB_CLIENT_ID",
-                "\"12fae6d0192d4d595447\""
         buildConfigField "String", "DRIBBBLE_CLIENT_ID",
                 "\"81a4b656a2925c9a322ee193b792b733926de7fad6301baad4dfd962b9a6dab5\""
         buildConfigField "String", "DRIBBBLE_CLIENT_SECRET",
@@ -37,17 +33,6 @@ android {
                 "\"29ed478ab86c07f1c069b1af76088f7431396b7c4a2523d06911345da82224a0\""
         buildConfigField "String", "PRODUCT_HUNT_DEVELOPER_TOKEN",
                 "\"9ab4e80ff285ee4809f3d8bd6a21da0988bbb9cf76dffd2fae3cd06f3d51ec4e\""
-        buildConfigField "String", "BEHANCE_CLIENT_ID",
-                "\" UKLvHgBApHlWGeGrEccEZFjJE9FiQrLW\""
-        buildConfigField "String", "UNSPLASH_ACCESS_KEY",
-                "\"1f8c0279e7a75ffc44bd188ba521eaa18efe5a88a625972b96b30a745a1d8450\""
-        buildConfigField "String", "UNSPLASH_SECRET_KEY",
-                "\"9aadda3830776fa92364415dbc7b7606b1372188243be7900fd4e3f4dd01eb33\""
-        buildConfigField "String", "UNSPLASH_APP_ID",
-                "\"22773\""
-        buildConfigField "String", "DESIGNER_NEWS_CLIENT_ID", "\"some_text_here\""
-        buildConfigField "String",
-                "DESIGNER_NEWS_CLIENT_SECRET", "\"some_name_here\""
 
         final def filesAuthorityValue = applicationId + ".shareprovider"
         buildConfigField "String", "FILES_AUTHORITY", "\"${filesAuthorityValue}\""
@@ -135,17 +120,6 @@ dependencies {
         transitive = true
     }
     implementation "com.google.firebase:firebase-core:${versions.google}"
-    implementation "com.google.firebase:firebase-auth:${versions.google}"
-    implementation "com.google.firebase:firebase-storage:${versions.google}"
-    implementation "com.google.firebase:firebase-firestore:${versions.google}"
-    implementation "com.google.firebase:firebase-messaging:${versions.google}"
-    implementation 'com.firebaseui:firebase-ui-auth:3.2.2'
-    implementation 'com.facebook.android:facebook-login:4.30.0'
-    implementation("com.twitter.sdk.android:twitter-core:3.2.0@aar") { transitive = true }
-    implementation "com.google.android.gms:play-services-auth:${versions.google}"
-
     implementation project(":bypass")
 }
-
-
 apply plugin: 'com.google.gms.google-services'

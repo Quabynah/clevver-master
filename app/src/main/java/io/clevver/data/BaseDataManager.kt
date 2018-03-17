@@ -11,12 +11,10 @@ import io.clevver.BuildConfig
 import io.clevver.api.ClevverUtils
 import io.clevver.data.api.AuthInterceptor
 import io.clevver.data.api.DenvelopingConverter
-import io.clevver.data.api.behance.BehanceService
 import io.clevver.data.api.dribbble.DribbbleSearchConverter
 import io.clevver.data.api.dribbble.DribbbleSearchService
 import io.clevver.data.api.dribbble.DribbbleService
 import io.clevver.data.api.producthunt.ProductHuntService
-import io.clevver.data.prefs.BehancePrefs
 import io.clevver.data.prefs.DribbblePrefs
 import okhttp3.Cache
 import okhttp3.CacheControl
@@ -40,7 +38,6 @@ abstract class BaseDataManager<T>(private val context: Context) : DataLoadingSub
 
     private val loadingCount: AtomicInteger = AtomicInteger(0)
     val dribbblePrefs: DribbblePrefs = DribbblePrefs[context]
-    val behancePrefs: BehancePrefs = BehancePrefs[context]
     private var dribbbleSearchApi: DribbbleSearchService? = null
     private var productHuntApi: ProductHuntService? = null
     private var loadingCallbacks: MutableList<DataLoadingSubject.DataLoadingCallbacks>? = null
@@ -55,9 +52,6 @@ abstract class BaseDataManager<T>(private val context: Context) : DataLoadingSub
 
     val dribbbleApi: DribbbleService
         get() = dribbblePrefs.getApi()
-
-    val behanceApi: BehanceService
-        get() = behancePrefs.getApi()
 
     abstract fun onDataLoaded(data: T)
 

@@ -22,28 +22,6 @@
         android:id="@+id/menu_dribbble_login"
         android:title="@string/dribbble_login"
         android:showAsAction="never" />
-    
-    <item
-        android:id="@+id/menu_behance_login"
-        android:title="@string/behance_login"
-        android:showAsAction="never" />
-    
-    <item
-        android:id="@+id/menu_profile_dribbble"
-        android:title="@string/dribbble_profile"
-        android:enabled="false"
-        android:showAsAction="never" />
-    
-    <item
-        android:id="@+id/menu_github"
-        android:title="@string/github_repos"
-        android:showAsAction="never" />
-    
-    <item
-        android:id="@+id/menu_collections"
-        android:title="@string/my_collections"
-        android:enabled="false"
-        android:showAsAction="never" />
 
     <item
         android:id="@+id/menu_about"
