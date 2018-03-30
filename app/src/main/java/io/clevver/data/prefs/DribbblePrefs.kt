@@ -166,7 +166,7 @@ class DribbblePrefs private constructor(private val context: Context) {
     }
 
     private fun dispatchLoginEvent() {
-        if (loginStatusListeners != null && !loginStatusListeners!!.isEmpty()) {
+        if (loginStatusListeners != null && loginStatusListeners!!.isNotEmpty()) {
             for (listener in loginStatusListeners!!) {
                 listener.onDribbbleLogin()
             }
@@ -174,7 +174,7 @@ class DribbblePrefs private constructor(private val context: Context) {
     }
 
     private fun dispatchLogoutEvent() {
-        if (loginStatusListeners != null && !loginStatusListeners!!.isEmpty()) {
+        if (loginStatusListeners != null && loginStatusListeners!!.isNotEmpty()) {
             for (listener in loginStatusListeners!!) {
                 listener.onDribbbleLogout()
             }
@@ -198,7 +198,7 @@ class DribbblePrefs private constructor(private val context: Context) {
                 .create(DribbbleService::class.java)
     }
 
-    private fun getAccessToken(): String {
+    fun getAccessToken(): String {
         return if (accessToken.isNullOrEmpty()) BuildConfig.DRIBBBLE_CLIENT_ACCESS_TOKEN else accessToken!!
     }
 
